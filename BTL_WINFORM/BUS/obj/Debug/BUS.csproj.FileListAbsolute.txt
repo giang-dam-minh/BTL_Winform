@@ -1,0 +1,7 @@
+D:\AA\WINFORM\BTL_WINFORM\BUS\bin\Debug\BUS.dll
+D:\AA\WINFORM\BTL_WINFORM\BUS\bin\Debug\BUS.pdb
+D:\AA\WINFORM\BTL_WINFORM\BUS\bin\Debug\DAL.dll
+D:\AA\WINFORM\BTL_WINFORM\BUS\bin\Debug\DAL.pdb
+D:\AA\WINFORM\BTL_WINFORM\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+D:\AA\WINFORM\BTL_WINFORM\BUS\obj\Debug\BUS.dll
+D:\AA\WINFORM\BTL_WINFORM\BUS\obj\Debug\BUS.pdb
