@@ -15,4 +15,4 @@ D:\AA\WINFORM\BTL_WINFORM\GUI\obj\x86\Debug\GUI.frmAdmin.resources
 D:\AA\WINFORM\BTL_WINFORM\GUI\obj\x86\Debug\GUI.frmAddUser.resources
 D:\AA\WINFORM\BTL_WINFORM\GUI\obj\x86\Debug\GUI.frmEditRole.resources
 D:\AA\WINFORM\BTL_WINFORM\GUI\obj\x86\Debug\GUI.frmUser.resources
-D:\AA\WINFORM\BTL_WINFORM\GUI\obj\x86\Debug\GUI.frmControlOutIn.resources
+D:\AA\WINFORM\BTL_WINFORM\GUI\obj\x86\Debug\GUI.frmLogoutDetected.resources

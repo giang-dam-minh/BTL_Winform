@@ -11,8 +11,13 @@ namespace GUI
 {
     public partial class frmAdmin : Form
     {
+
         BUS_Offices bus_office = new BUS_Offices();
         BUS_Users bus_user = new BUS_Users();
+        BUS_Hisroty bus_history = new BUS_Hisroty();
+        string email;
+        DateTime date;
+        TimeSpan timeIn;
         public frmAdmin()
         {
             InitializeComponent();
@@ -20,6 +25,10 @@ namespace GUI
 
         private void frmAdmin_Load(object sender, EventArgs e)
         {
+            email = this.Tag.ToString();
+            date = DateTime.Today;
+            timeIn = TimeSpan.Parse(DateTime.Now.ToString("hh:mm:ss"));
+            bus_history.addHistory(email, date, timeIn);
             bus_office.getOfficeNameToComboBox(cbbOffices);
             bus_user.DisplayDataByOfficeName(cbbOffices.Text,grvListUsers);         
         }
@@ -34,13 +43,17 @@ namespace GUI
             DialogResult rs = MessageBox.Show("Exit?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (rs == DialogResult.Yes)
             {
-                this.Dispose();
+                TimeSpan timeOut = TimeSpan.Parse(DateTime.Now.ToString("hh:mm:ss"));
+                bus_history.upDateTimeOut(email, date, timeIn, timeOut, "");
+                this.Close();
             }
         }
 
         private void addUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmAddUser frm = new frmAddUser();
+            frm.ShowDialog();
+      
         }
 
         private void addUserFromCSVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,11 +85,21 @@ namespace GUI
 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int i = grvListUsers.SelectedCells[0].RowIndex;
+            DataGridViewRow row = grvListUsers.Rows[i];
+            if (bus_user.checkActiviveByEmail(row.Cells["EmailAddres"].Value.ToString()))
+            {
+                btnEDLogin.Text = "Disable Login";
+            }
+            else
+            {
+                btnEDLogin.Text = "Enable Login";
+            }
         }
 
         private void controlLogoutLoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmControlOutIn frm = new frmControlOutIn();
+            frmLogoutDetected frm = new frmLogoutDetected();
             frm.ShowDialog();
         }
 
@@ -89,6 +112,23 @@ namespace GUI
              frm.Show();
              this.Dispose();
          }
+        }
+
+        private void frmAdmin_Activated(object sender, EventArgs e)
+        {
+            bus_user.DisplayDataByOfficeName(cbbOffices.Text, grvListUsers);         
+        }
+
+        private void frmAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Exit?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
+            {
+                TimeSpan timeOut = TimeSpan.Parse(DateTime.Now.ToString("hh:mm:ss"));
+                bus_history.upDateTimeOut(email, date, timeIn, timeOut, "");
+            }
+            else
+                e.Cancel = true;
         }
     }
 }

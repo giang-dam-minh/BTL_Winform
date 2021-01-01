@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 namespace BUS
 {
     public class BUS_Users :  Connection_DAL
@@ -134,6 +135,10 @@ namespace BUS
         {
             dal_user.changActiveByEmail(email);
         }
+        public bool checkActiviveByEmail(string email)
+        {
+            return dal_user.checkActivityByEmail(email);
+        }
         public void changColor(DataGridView dg)
         {
             int k = dg.RowCount;
@@ -150,6 +155,19 @@ namespace BUS
         public string getOfficeNameByEmail(string email)
         {
             return dal_user.getOfficeNameByEmail(email);
+        }
+        public bool IsValidEmail(string email)
+        {
+            string expression = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+
+            if (Regex.IsMatch(email, expression))
+            {
+                if (Regex.Replace(email, expression, string.Empty).Length == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

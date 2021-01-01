@@ -26,9 +26,9 @@ namespace GUI
         private void btnSave_Click(object sender, EventArgs e)
         {
             bool checkValid = true;
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            if (!bus_user.IsValidEmail(txtEmail.Text))
             {
-                errorProvider1.SetError(txtEmail, "Please enter email address!");
+                errorProvider1.SetError(txtEmail, "The email adddress is not valid(Example: example@gmail.com)");
                 checkValid=false;
             }
             if (string.IsNullOrWhiteSpace(txtFName.Text))
@@ -64,9 +64,9 @@ namespace GUI
 
         private void txtEmailChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            if (!bus_user.IsValidEmail(txtEmail.Text))
             {
-                errorProvider1.SetError(txtEmail, "Please enter email address!");
+                errorProvider1.SetError(txtEmail, "The email address is not valid(Example: example@domain.com)");
             }
             else
             {
@@ -129,6 +129,11 @@ namespace GUI
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmAddUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }

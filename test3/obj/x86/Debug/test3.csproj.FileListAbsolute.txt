@@ -1,5 +1,0 @@
-D:\AA\WINFORM\BTL_WINFORM\test3\bin\Debug\test3.exe
-D:\AA\WINFORM\BTL_WINFORM\test3\bin\Debug\test3.pdb
-D:\AA\WINFORM\BTL_WINFORM\test3\obj\x86\Debug\test3.exe
-D:\AA\WINFORM\BTL_WINFORM\test3\obj\x86\Debug\test3.pdb
-D:\AA\WINFORM\BTL_WINFORM\test3\obj\x86\Debug\test3.csprojResolveAssemblyReference.cache

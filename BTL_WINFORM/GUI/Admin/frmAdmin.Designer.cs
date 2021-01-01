@@ -30,10 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addUserFromCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addUserToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.controlLogoutLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnChangRole = new System.Windows.Forms.Button();
             this.btnEDLogin = new System.Windows.Forms.Button();
@@ -57,43 +53,10 @@
             // 
             // addUserToolStripMenuItem
             // 
-            this.addUserToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addUserFromCSVToolStripMenuItem,
-            this.addUserToolStripMenuItem1,
-            this.controlLogoutLoginToolStripMenuItem,
-            this.logoutToolStripMenuItem});
             this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
-            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.addUserToolStripMenuItem.Text = "System";
+            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.addUserToolStripMenuItem.Text = "Add user";
             this.addUserToolStripMenuItem.Click += new System.EventHandler(this.addUserToolStripMenuItem_Click);
-            // 
-            // addUserFromCSVToolStripMenuItem
-            // 
-            this.addUserFromCSVToolStripMenuItem.Name = "addUserFromCSVToolStripMenuItem";
-            this.addUserFromCSVToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.addUserFromCSVToolStripMenuItem.Text = "Add User from CSV";
-            this.addUserFromCSVToolStripMenuItem.Click += new System.EventHandler(this.addUserFromCSVToolStripMenuItem_Click);
-            // 
-            // addUserToolStripMenuItem1
-            // 
-            this.addUserToolStripMenuItem1.Name = "addUserToolStripMenuItem1";
-            this.addUserToolStripMenuItem1.Size = new System.Drawing.Size(190, 22);
-            this.addUserToolStripMenuItem1.Text = "Add User";
-            this.addUserToolStripMenuItem1.Click += new System.EventHandler(this.addUserToolStripMenuItem1_Click);
-            // 
-            // controlLogoutLoginToolStripMenuItem
-            // 
-            this.controlLogoutLoginToolStripMenuItem.Name = "controlLogoutLoginToolStripMenuItem";
-            this.controlLogoutLoginToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.controlLogoutLoginToolStripMenuItem.Text = "Control Logout/Login";
-            this.controlLogoutLoginToolStripMenuItem.Click += new System.EventHandler(this.controlLogoutLoginToolStripMenuItem_Click);
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -167,6 +130,8 @@
             this.Name = "frmAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ANOMIC Airlines Automation System";
+            this.Activated += new System.EventHandler(this.frmAdmin_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAdmin_FormClosing);
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -183,12 +148,8 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button btnChangRole;
         private System.Windows.Forms.Button btnEDLogin;
-        private System.Windows.Forms.ToolStripMenuItem addUserFromCSVToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addUserToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem controlLogoutLoginToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbbOffices;
         private System.Windows.Forms.DataGridView grvListUsers;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

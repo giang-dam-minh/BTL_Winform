@@ -19,8 +19,11 @@ namespace test2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            User u = db.Users.SingleOrDefault(d => d.ID==1);
-            textBox1.Text = u.Active.ToString();
+            var data = from h in db.Histories
+                       select h;
+            foreach (History h2 in data)
+                MessageBox.Show(h2.Date.ToString());
+            dataGridView1.DataSource = data;   
         }
 
         private void test(object sender, FormClosingEventArgs e)
@@ -38,9 +41,7 @@ namespace test2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-            if(dlg.ShowDialog()==DialogResult.OK)
-              MessageBox.Show(dlg.FileName);
+           
         }
     }
 }

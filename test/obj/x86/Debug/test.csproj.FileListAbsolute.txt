@@ -1,4 +1,0 @@
-D:\AA\WINFORM\BTL_WINFORM\test\bin\Debug\test.exe
-D:\AA\WINFORM\BTL_WINFORM\test\bin\Debug\test.pdb
-D:\AA\WINFORM\BTL_WINFORM\test\obj\x86\Debug\test.exe
-D:\AA\WINFORM\BTL_WINFORM\test\obj\x86\Debug\test.pdb

@@ -1,9 +1,0 @@
-D:\AA\WINFORM\BTL_WINFORM\test2\bin\Debug\test2.exe.config
-D:\AA\WINFORM\BTL_WINFORM\test2\bin\Debug\test2.exe
-D:\AA\WINFORM\BTL_WINFORM\test2\bin\Debug\test2.pdb
-D:\AA\WINFORM\BTL_WINFORM\test2\obj\x86\Debug\test2.Form1.resources
-D:\AA\WINFORM\BTL_WINFORM\test2\obj\x86\Debug\test2.Properties.Resources.resources
-D:\AA\WINFORM\BTL_WINFORM\test2\obj\x86\Debug\test2.csproj.GenerateResource.Cache
-D:\AA\WINFORM\BTL_WINFORM\test2\obj\x86\Debug\test2.exe
-D:\AA\WINFORM\BTL_WINFORM\test2\obj\x86\Debug\test2.pdb
-D:\AA\WINFORM\BTL_WINFORM\test2\obj\x86\Debug\test2.csprojResolveAssemblyReference.cache

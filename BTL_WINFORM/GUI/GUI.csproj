@@ -52,11 +52,11 @@
     <Compile Include="Admin\frmAdmin.Designer.cs">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\frmControlOutIn.cs">
+    <Compile Include="frmLogoutDetected.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\frmControlOutIn.Designer.cs">
-      <DependentUpon>frmControlOutIn.cs</DependentUpon>
+    <Compile Include="frmControlOutIn.Designer.cs">
+      <DependentUpon>frmLogoutDetected.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\frmEditRole.cs">
       <SubType>Form</SubType>
@@ -94,8 +94,8 @@
     <EmbeddedResource Include="Admin\frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\frmControlOutIn.resx">
-      <DependentUpon>frmControlOutIn.cs</DependentUpon>
+    <EmbeddedResource Include="frmControlOutIn.resx">
+      <DependentUpon>frmLogoutDetected.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\frmEditRole.resx">
       <DependentUpon>frmEditRole.cs</DependentUpon>

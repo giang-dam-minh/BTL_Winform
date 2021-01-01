@@ -14,6 +14,7 @@ namespace GUI
     {
         BUS_Users bus_user = new BUS_Users();
         BUS_Login bus_login = new BUS_Login();
+        BUS_Hisroty bus_history = new BUS_Hisroty();
         private System.Windows.Forms.Timer aTimer;
         int counter = 11;
         static int dem = 0;
@@ -61,6 +62,13 @@ namespace GUI
                 if (checkRole == 1)
                 {
                     frmAdmin frm = new frmAdmin();
+                    frm.Tag = txtEmailLogin.Text;
+                    if (!bus_history.checkFinalLogoutByEmail(txtEmailLogin.Text))
+                    {
+                        frmLogoutDetected frmLD = new frmLogoutDetected();
+                        frmLD.Tag = txtEmailLogin.Text;
+                        frmLD.ShowDialog();
+                    }
                     frm.Show();
                     this.Hide();
                 }
@@ -68,6 +76,12 @@ namespace GUI
                 {
                     frmUser frm = new frmUser();
                     frm.Tag = txtEmailLogin.Text;
+                    if (!bus_history.checkFinalLogoutByEmail(txtEmailLogin.Text))
+                    {
+                        frmLogoutDetected frmLD = new frmLogoutDetected();
+                        frmLD.Tag = txtEmailLogin.Text;
+                        frmLD.ShowDialog();
+                    }
                     frm.Show();
                     this.Hide();
                 }

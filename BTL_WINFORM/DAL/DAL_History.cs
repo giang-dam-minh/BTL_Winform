@@ -7,19 +7,34 @@ namespace DAL
 {
     public class DAL_History : database
     {
-        public object getHistoryByEmail(string email,TimeSpan timeIn)
+        public object getHistoryByEmail(string email)
         {
             var data = from h in db.Histories
-                       where h.Email == email && h.Date!= DateTime.Now && h.LoginTime!= timeIn
+                       where h.Email == email
                        select new
                        {
                            h.Date,
                            h.LoginTime,
                            h.LogoutTime,
                            h.TimeOnSystem,
-                           h.LogoutReason
+                           h.LogoutReason       
                        };
             return data;
+        }
+        public History getHistoryFinalByEmail(string email)
+        {
+            List<History> list = getAllHistoryByEmail(email);
+            return list[list.Count-1];
+        }
+        public string getFinalDateLoginByEmail(string email)
+        {
+            History h = getHistoryFinalByEmail(email);
+            return  h.Date.ToString();
+        }
+        public TimeSpan getFinalTimeLoginByEmail(string email)
+        {
+            History h = getHistoryFinalByEmail(email);
+            return  (TimeSpan) h.LoginTime;
         }
         public int getCrashByEmail(string email,TimeSpan timeIn)
         {
@@ -28,28 +43,22 @@ namespace DAL
                        select (h);
             return data.Count();
         }
-        public object getAllHistory()
+        public List<History> getAllHistoryByEmail(string email)
         {
-
+            List<History> list=new List<History>();
             var data = from h in db.Histories
-                       select new
-                       {
-                           
-                           h.Date,
-                           h.Email,
-                           h.LoginTime,
-                           h.LogoutTime,
-                           h.TimeOnSystem,
-                           h.LogoutReason
-                       };
-            return data;
+                       where h.Email==email
+                       select h;
+            foreach (History h in data)
+                list.Add(h);
+            return list;
         }
         public void addHistory(History h)
         {
             var data = from h2 in db.Histories
                        select h2;
             h.ID = data.Count()+1;
-            h.LogoutReason = "No Logout";
+            h.LogoutReason = "No Logout Detected";
             db.Histories.InsertOnSubmit(h);
             db.SubmitChanges();
         }
@@ -63,7 +72,7 @@ namespace DAL
         }
         public void updateReason(History h)
         {
-            History h2 = db.Histories.SingleOrDefault(h3 => h3.Date == h.Date && h3.LoginTime == h.LoginTime && h3.Email == h.Email);
+            History h2 = getHistoryFinalByEmail(h.Email);
             h2.LogoutReason = h.LogoutReason;
             db.SubmitChanges();
         }

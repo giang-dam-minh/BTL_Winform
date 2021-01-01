@@ -12,10 +12,9 @@ namespace BUS
         
         public void DisplayByEmail(DataGridView dg,string email,TimeSpan timeIn)
         {
-            if (email == "All email")
-                DisplayAll(dg);
-            else
-                dg.DataSource = dal_history.getHistoryByEmail(email,timeIn);
+            List<History> lishHistory = new List<History>();
+
+            dg.DataSource = dal_history.getHistoryByEmail(email);
         }   
         public int getCrashByEmail(string email,TimeSpan timeIn)
         {
@@ -23,8 +22,25 @@ namespace BUS
         }
         public void DisplayAll(DataGridView dg)
         {
-            dg.DataSource = dal_history.getAllHistory();
-            changeColor(dg);
+            //dg.DataSource = dal_history.getAllHistory();
+            //changeColor(dg);
+        }
+        public bool checkFinalLogoutByEmail(string email)
+        {
+           History h = dal_history.getHistoryFinalByEmail(email);
+            if(string.IsNullOrEmpty(h.LogoutReason))
+                return true;
+
+            return false;
+        }
+        public string getFinalDateLoginByEmail(string email)
+        {
+            return dal_history.getFinalDateLoginByEmail(email);
+
+        }
+        public TimeSpan getFinalTimeLoginByEmail(string email)
+        {
+            return dal_history.getFinalTimeLoginByEmail(email);
         }
         public void addHistory(string email, DateTime date, TimeSpan timeIn)
         {
@@ -44,12 +60,10 @@ namespace BUS
             h.LogoutReason = reason;
             dal_history.updateTimeOut(h);
         }
-        public void updateReason(string email, DateTime date, TimeSpan timeIn, string reason)
+        public void updateReason(string email,string reason)
         {
             History h = new History();
             h.Email = email;
-            h.Date = date;
-            h.LoginTime = timeIn;
             h.LogoutReason = reason;
             dal_history.updateReason(h);
             

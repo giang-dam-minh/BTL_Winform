@@ -28,8 +28,8 @@ namespace GUI
             date = DateTime.Today;
             timeIn = TimeSpan.Parse(DateTime.Now.ToString("hh:mm:ss"));
             sumTimeUsed = TimeSpan.Parse(bus_history.getSumTimeUseByEmail(email).ToString());
-            bus_history.addHistory(email,date,timeIn);
-            bus_history.DisplayByEmail(grvHistory, email,timeIn);
+            bus_history.DisplayByEmail(grvHistory, email, timeIn);
+            bus_history.addHistory(email,date,timeIn);   
             lbHello.Text = "Hi " + bus_user.getFNameByEmail(email) + " ,Welcome to AMONIC Airlines";
             label4.Text = bus_history.getCrashByEmail(email,timeIn).ToString();
             bus_history.changeColor(grvHistory);
@@ -60,6 +60,19 @@ namespace GUI
             DateTime now = DateTime.Now;
             timer1.Interval = 1000;
             lbTimeOn.Text = (sumTimeUsed+ TimeSpan.Parse(now.ToString("hh:mm:ss")) - timeIn).ToString();
+        }
+
+        private void frmUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Exit?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.Yes)
+            {
+                TimeSpan timeOut = TimeSpan.Parse(DateTime.Now.ToString("hh:mm:ss"));
+                bus_history.upDateTimeOut(email, date, timeIn, timeOut, "");
+                
+            }
+            else
+                e.Cancel = true;
         }
     }
 }

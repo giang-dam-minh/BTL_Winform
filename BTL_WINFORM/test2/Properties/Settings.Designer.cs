@@ -32,5 +32,15 @@ namespace test2.Properties {
                 return ((string)(this["session1ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DMG\\SQLEXPRESS;Initial Catalog=session1;Integrated Security=True")]
+        public string session1ConnectionString1 {
+            get {
+                return ((string)(this["session1ConnectionString1"]));
+            }
+        }
     }
 }
