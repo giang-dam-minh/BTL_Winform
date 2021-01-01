@@ -1,0 +1,6 @@
+D:\AA\WINFORM\BTL_WINFORM\DAL\bin\Debug\DAL.dll
+D:\AA\WINFORM\BTL_WINFORM\DAL\bin\Debug\DAL.pdb
+D:\AA\WINFORM\BTL_WINFORM\DAL\obj\Debug\DAL.dll
+D:\AA\WINFORM\BTL_WINFORM\DAL\obj\Debug\DAL.pdb
+D:\AA\WINFORM\BTL_WINFORM\DAL\bin\Debug\DAL.dll.config
+D:\AA\WINFORM\BTL_WINFORM\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
